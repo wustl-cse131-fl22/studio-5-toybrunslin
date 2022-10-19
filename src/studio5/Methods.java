@@ -17,6 +17,11 @@ public class Methods {
 		double distance = 0;
 		// FIXME: Hint use Math methods (e.g. Math.sqrt) to compute the distance
 		
+		double xdist = x1 - x2;
+		double ydist = y1 - y2;
+		xdist = Math.pow(xdist, 2);
+		ydist = Math.pow(ydist, 2);
+		distance = Math.sqrt(xdist+ydist);
 		return distance;
 	}
 
@@ -34,18 +39,24 @@ public class Methods {
 		// TODO: Draw the remaining rings of the bull's eye
 		// Blue ring with 3.0/4.0 the radius
 		// suggested rgb values: 0, 109, 219
+		StdDraw.setPenColor(StdDraw.BLUE);
+		StdDraw.filledCircle(x, y, (3.0/4)*radius);
 
 		
 
 		// Red ring with 1.0/2.0 the radius
 		// suggested rgb values: 146, 0, 0
+		StdDraw.setPenColor(StdDraw.RED);
+		StdDraw.filledCircle(x, y, (1.0/2)*radius);
 
 		
 
 		// Yellow ring with 1.0/4.0 the radius
 		// suggested rgb values: 255, 255, 109
 
-		
+		StdDraw.setPenColor(StdDraw.YELLOW);
+		StdDraw.filledCircle(x, y, (1.0/4)*radius);
+
 	}
 
 	/**
@@ -60,7 +71,22 @@ public class Methods {
 	 *         characters in the source String with the replacement String
 	 */
 	public static String substituteAll(String source, char target, String replacement) {
+		char[] array = new char[source.length()];
+		array = source.toCharArray();
 		String result = "";
+		for (int i = 0; i<array.length; i++) {
+			if(array[i]!=target) {
+			
+			result = result + array[i];
+			}
+			if(array[i]==target) {
+			result = result + replacement;
+			}
+		
+				
+			}
+			
+		
 		// TODO: Finish this method
 		
 		return result;
@@ -75,6 +101,9 @@ public class Methods {
 	public static int arraySum(int[] values) {
 		int sum = 0;
 		// FIXME: Compute the sum of the values in an array
+		for (int i =0; i < values.length; i++) {
+			sum=sum+values[i];
+		}
 		
 		return sum;
 	}
@@ -87,8 +116,11 @@ public class Methods {
 	 * @return and array of size that's filled with value
 	 */
 	public static int[] filledArray(int length, int value) {
-		int[] values = null; // FIXME: Create an array of the appropriate size
+		int[] values = new int[length]; // FIXME: Create an array of the appropriate size
 		// TODO: Finish this method
+		for (int i = 0; i < length; i ++) {
+			values[i]= value;
+		}
 
 		
 
